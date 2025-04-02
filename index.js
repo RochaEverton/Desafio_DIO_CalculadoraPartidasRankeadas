@@ -29,14 +29,28 @@ function rankPlayer(){
 	let qtyVictories = document.getElementById("numberVictories").value;
 	let qtyDefeats = document.getElementById("numberDefeats").value;
     saldoVitorias = qtyVictories - qtyDefeats;
-    if(saldoVitorias <= 0){
+    if (saldoVitorias <= 10) {
+     nivel = "Ferro";
+  	} else if (saldoVitorias > 10 && saldoVitorias <= 20) {
+     nivel = "Bronze";
+  	} else if (saldoVitorias > 20 && saldoVitorias <= 50) {
+     nivel = "Prata";
+  	} else if (saldoVitorias > 50 && saldoVitorias <= 80) {
+     nivel = "Ouro";
+  	} else if (saldoVitorias > 80 && saldoVitorias <= 90) {
+     nivel = "Diamante";
+  	} else if (saldoVitorias > 90 && saldoVitorias <= 100) {
+     nivel = "Lendário";
+  	} else if (saldoVitorias > 100) {
+     nivel = "Imortal";
+  	} else {
     	document.getElementById("rank").innerText = "O Herói tem mais derrotas que vitórias";
-    } else if (saldoVitorias < 10){
-        document.getElementById("rank").innerText = "O Herói tem de saldo de " + saldoVitorias + " está no nível de Ferro";
-    } else if (saldoVitorias >= 11 && saldoVitorias < 20){
-        document.getElementById("rank").innerText = "O Herói tem de saldo de " + saldoVitorias + " está no nível de Bronze";
-    }
-}	
+	}
+	//exibe Ranking
+	document.getElementById("rank").textContent = "O Herói tem saldo de " + saldoVitorias + " está no nível de " + nivel;
+
+
+}
 
 </script>
 </body>
